@@ -1,10 +1,10 @@
-const app = require('./api');
+const { server } = require('./api');
 const supertest = require('supertest');
 
 describe('API', () => {
   let request;
   beforeEach(() => {
-    request = supertest(app);
+    request = supertest(server);
   });
 
   test('should get todos', done => {

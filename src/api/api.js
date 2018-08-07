@@ -24,4 +24,4 @@ app.post('/api/todos', (req, res) => {
   res.status(200).json(todos);
 });
 
-module.exports.server = serverless(api);
+module.exports.server = serverless(app);

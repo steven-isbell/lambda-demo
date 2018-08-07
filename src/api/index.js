@@ -1,3 +1,4 @@
-const serverless = require('serverless-http')
+const serverless = require('serverless-http');
+const api = require('./api');
 
-module.exports.handler = serverless(require('./api'))
+module.exports.handler = serverless(api);

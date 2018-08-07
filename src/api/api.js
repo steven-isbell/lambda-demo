@@ -1,21 +1,25 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+const todos = [];
 
 app.get('/', (req, res) => {
-  res.json({message: 'ok'})
-})
+  res.status(200).json({ message: 'ok' });
+});
 
-app.get('/todos', (req, res) => {
-  const todos = [
-    {id: 1, name: 'clean up', status: 'open'},
-    {id: 1, name: 'cook', status: 'done'}
-  ]
-  res.json({data: todos})
-})
+app.get('/api/todos', (req, res) => {
+  res.status(200).json({ data: todos });
+});
 
+app.get('/api/todos/:todo', (req, res) => {
+  res.status(200).json({ id: 1, name: 'clean up', status: 'open' });
+});
 
-app.get('/todos/:todo', (req, res) => {
-  res.json({id: 1, name: 'clean up', status: 'open'})
-})
+app.post('/api/todos', (req, res) => {
+  todos.push(req.body);
+  res.status(200).json(todos);
+});
 
-module.exports = app
+module.exports = app;

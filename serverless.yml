@@ -12,7 +12,7 @@ plugins:
 
 functions:
   api:
-    handler: src/api/index.handler
+    handler: src/api/index.server
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

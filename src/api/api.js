@@ -1,11 +1,13 @@
 const express = require('express');
+const serverless = require('serverless-http');
+
 const app = express();
 
 app.use(express.json());
 
 const todos = [];
 
-app.get('/', (req, res) => {
+app.get('/heartbeat', (req, res) => {
   res.status(200).json({ message: 'ok' });
 });
 
@@ -22,4 +24,4 @@ app.post('/api/todos', (req, res) => {
   res.status(200).json(todos);
 });
 
-module.exports = app;
+module.exports.server = serverless(api);

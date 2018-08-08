@@ -17,3 +17,5 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+  hello:
+      handler: src/hello/helloWorld.handler

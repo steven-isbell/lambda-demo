@@ -3,9 +3,10 @@ service: serverless
 provider:
   name: aws
   runtime: nodejs8.10
-  # profile: placeholder aws permission
-  region: us-west-1
-  stage: dev
+  # serverless has defaults for these if not explicitly set
+  # profile: placeholder aws permission || aws config
+  # region: placeholder for aws region || us-east-1 (Virginia)
+  # stage: dev || stage for the functions
 
 plugins:
   - serverless-offline
